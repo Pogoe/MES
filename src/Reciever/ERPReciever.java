@@ -13,31 +13,5 @@ import Controller.Order;
  */
 public class ERPReciever
 {
-    Order order;
     
-    public ERPReciever()
-    {
-        order = new Order();
-    }
-    
-    public Order waitForOrder()
-    {
-        while (order == null)
-        {
-            
-        }
-        
-        return order;
-    }
-    
-    public Order getRecipe(Order order)
-    {
-        
-        return order;
-    }
-    
-    public void executeOrder();
-    {
-        
-    }
 }
