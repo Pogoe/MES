@@ -1,18 +1,25 @@
 package Client;
 
+import order.Order;
+
 public class SCADAClient
 {
     private MesServerImplService service;
     private IMesServer server;
     
-    public void connect()
+    public SCADAClient()
     {
         service = new MesServerImplService();
         server = service.getMesServerImplPort();
     }
     
-    public void storeTask()
+    public void storeOrder(Order order)
     {
-        server.storeTask();
+        server.storeOrder(order.toString());
+    }
+    
+    public void executeOrder(Order order)
+    {
+        server.executeOrder(order.toString());
     }
 }
