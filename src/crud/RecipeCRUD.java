@@ -7,21 +7,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import order.Recipe;
 
-public class CRUD implements IMesCRUD
+public class RecipeCRUD implements IRecipeCRUD
 {
-    public static CRUD instance;
+    public static RecipeCRUD instance;
     private Connection conn;
 
-    private CRUD()
+    private RecipeCRUD()
     {
         connect();
     }
     
-    public static CRUD get()
+    public static RecipeCRUD get()
     {
         if(instance == null)
         {
-            instance = new CRUD();
+            instance = new RecipeCRUD();
         }
         return instance;
     }
@@ -31,10 +31,9 @@ public class CRUD implements IMesCRUD
         try
         {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/Semesterprojekt";
+            String url = "jdbc:postgresql://localhost:5432/RecipeDB";
             String user = "postgres";
-            String pass = "u7e98d22";
-            conn = DriverManager.getConnection(url, user, pass);
+            conn = DriverManager.getConnection(url, user, "");
         } catch (ClassNotFoundException | SQLException ex)
         {
             System.err.println(ex);

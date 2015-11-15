@@ -2,7 +2,7 @@ package crud;
 
 import order.Recipe;
 
-public interface IMesCRUD
+public interface IRecipeCRUD
 {
     Recipe getRecipe(String name);
 }

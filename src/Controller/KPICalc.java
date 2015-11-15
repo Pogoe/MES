@@ -22,11 +22,4 @@ public class KPICalc
         
         return wasteRate;
     }
-    
-    //Mainmethod purely for testing purposes
-    public static void main (String [] args)
-    {
-        System.out.println("Belægningsprocent: " + getOccupancyRate(4767, 5000));
-        System.out.println("Spildprocent: " + getWasteRate(400, 399));
-    }
 }

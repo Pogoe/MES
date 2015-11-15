@@ -1,28 +1,28 @@
 package order;
 
-import crud.CRUD;
-import crud.IMesCRUD;
+import crud.IRecipeCRUD;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
-public class Order
+public class Order implements Serializable
 {
     private static List<PlantTypes> names = new ArrayList<>();
     private static List<Integer> quantities = new ArrayList<>();
     private static Random random = new Random();
-    private IMesCRUD crud = CRUD.get();
     private Recipe recipe;
     private int id;
     private String name;
     private int quantity;
     
-    public Order(int id, String name, int quantity)
+    public Order(int id, String name, int quantity, Recipe recipe)
     {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
-        setRecipe();
+        this.recipe = recipe;
     }
     
     public static void fillLists()
@@ -42,18 +42,18 @@ public class Order
         quantities.add(10000);
     }
     
-    public static Order generateOrder()
+    public static Order generateOrder(IRecipeCRUD crud)
     {
-        int tId = random.nextInt();
+        if(names == null || quantities == null)
+        {
+            fillLists();
+        }
+        
+        int tId = random.nextInt(10000) + 1;
         String tName = names.get(random.nextInt(names.size())).name();
         int tQuantity = quantities.get(random.nextInt(quantities.size()));
         
-        return new Order(tId, tName, tQuantity);
-    }
-    
-    private void setRecipe()
-    {
-        recipe = new Recipe(1, "Opskrift til denne grøntsag", 3, 4, 5, 6, 7, 8, 9, 10, 11);
+        return new Order(tId, tName, tQuantity, crud.getRecipe(tName));
     }
     
     @Override
@@ -67,5 +67,47 @@ public class Order
         sb.append("Recipe: ").append(recipe.getId()).append(", ").append(recipe.getName()).append("\n");
         
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.recipe);
+        hash = 23 * hash + this.id;
+        hash = 23 * hash + Objects.hashCode(this.name);
+        hash = 23 * hash + this.quantity;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == null)
+        {
+            return false;
+        }
+        if (getClass() != obj.getClass())
+        {
+            return false;
+        }
+        final Order other = (Order) obj;
+        if (!Objects.equals(this.recipe, other.recipe))
+        {
+            return false;
+        }
+        if (this.id != other.id)
+        {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name))
+        {
+            return false;
+        }
+        if (this.quantity != other.quantity)
+        {
+            return false;
+        }
+        return true;
     }
 }
