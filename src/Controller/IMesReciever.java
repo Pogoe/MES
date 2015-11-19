@@ -5,14 +5,14 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import order.Order;
 
 public interface IMesReciever extends Remote
 {
     boolean queueOrder(Order o) throws RemoteException;
-    List<BatchError> getDailyErrors(Date date) throws RemoteException;
+    List<BatchError> getDailyErrors(Date from, Date to) throws RemoteException;
     int getMaxCapacity() throws RemoteException;
-    int getCurrentCapacity() throws RemoteException;
-    int getRemovedUnits() throws RemoteException;
-    int getHarvestedUnits() throws RemoteException;
+    Map<String, Integer> getCurrentCapacity(Order o) throws RemoteException;
+    int getRemovedUnits(Order o) throws RemoteException;
 }

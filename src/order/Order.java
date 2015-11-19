@@ -110,4 +110,19 @@ public class Order implements Serializable
         }
         return true;
     }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public int getQuantity()
+    {
+        return quantity;
+    }
+    
+    public Recipe getRecipe()
+    {
+        return recipe;
+    }
 }

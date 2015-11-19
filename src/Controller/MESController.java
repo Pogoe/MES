@@ -26,6 +26,11 @@ public class MESController
         }
     }
     
+    public IMesReciever getServer()
+    {
+        return server;
+    }
+    
     public Order makeOrder()
     {
         Order o = Order.generateOrder(crud);

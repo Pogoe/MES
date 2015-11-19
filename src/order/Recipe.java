@@ -1,5 +1,8 @@
 package order;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Recipe
 {
     private int id;
@@ -79,6 +82,23 @@ public class Recipe
     public int getSunCycle()
     {
         return sunCycle;
+    }
+    
+    public Map<String, Integer> toHashMap()
+    {
+        Map<String, Integer> map = new HashMap<>();
+        
+        map.put("startMinTemp", startMinTemp);
+        map.put("startMaxTemp", startMaxTemp);
+        map.put("endMinTemp", endMaxTemp);
+        map.put("endMaxTemp", endMinTemp);
+        map.put("MinMoistLevel", minMoistLevel);
+        map.put("maxMoistLevel", maxMoistLevel);
+        map.put("waterCycle", waterCycle);
+        map.put("waterTime", waterTime);
+        map.put("sunCycle", sunCycle);
+        
+        return map;
     }
 
     @Override
