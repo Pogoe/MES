@@ -1,56 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
-import javafx.application.Application;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 /**
  *
- * @author User1
+ * @author pogoe_000
  */
-public class GUIController extends Application
+public class GUIController implements Initializable
 {
+    @FXML
+    private TextArea orderArea;
+    @FXML
+    private Label occupancyRateLable;
+    @FXML
+    private Label wasteRateLabel;
+    @FXML
+    private ChoiceBox<?> rateChoiceBox;
+    @FXML
+    private LineChart<?, ?> testGraf;
     
     @Override
-    public void start(Stage primaryStage)
+    public void initialize(URL url, ResourceBundle rb)
     {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>()
-        {
-            
-            @Override
-            public void handle(ActionEvent event)
-            {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+        // TODO
+    }        
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
+    @FXML
+    private void testKnapAction(ActionEvent event)
     {
-        launch(args);
     }
-    
 }

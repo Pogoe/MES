@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="386.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GUIController">
+   <children>
+      <TextArea fx:id="orderArea" layoutX="408.0" layoutY="27.0" prefHeight="354.0" prefWidth="203.0" />
+      <Label layoutX="408.0" layoutY="6.0" prefHeight="17.0" prefWidth="46.0" text="Ordre:" />
+      <Label fx:id="occupancyRateLable" layoutX="158.0" layoutY="19.0" text="Belægningsprocent:" />
+      <Label fx:id="wasteRateLabel" layoutX="32.0" layoutY="19.0" text="Spildprocent: " />
+      <ChoiceBox fx:id="rateChoiceBox" layoutX="31.0" layoutY="56.0" prefWidth="150.0" />
+      <Button layoutX="264.0" layoutY="103.0" mnemonicParsing="false" onAction="#testKnapAction" text="TestKnap" />
+      <LineChart fx:id="testGraf" layoutX="14.0" layoutY="139.0" prefHeight="247.0" prefWidth="307.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</AnchorPane>
