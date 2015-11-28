@@ -10,10 +10,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-/**
- *
- * @author pogoe_000
- */
 public class GUIController implements Initializable
 {
     @FXML
